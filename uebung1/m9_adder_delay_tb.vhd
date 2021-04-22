@@ -1,12 +1,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity m9_carry_select_delayed_tb is
+entity m9_adder_delay_tb is
     generic (width : positive := 5);
-end m9_carry_select_delayed_tb;
+end m9_adder_delay_tb;
 
-architecture behavior of m9_carry_select_delayed_tb is
-    component m9_carry_select_delayed is
+architecture behavior of m9_adder_delay_tb is
+    component m9_adder_delay is
         port (cin : in std_logic;
           a, b : in std_logic_vector (width - 1 downto 0);
           sum : out std_logic_vector (width - 1 downto 0);
@@ -17,7 +17,7 @@ architecture behavior of m9_carry_select_delayed_tb is
     signal cout, cin : std_logic;
 
 begin
-    uut: m9_carry_select_delayed port map (
+    uut: m9_adder_delay port map (
         cin => cin,
         a => a,
         b => b,
