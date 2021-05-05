@@ -7,13 +7,13 @@ use ieee.std_logic_1164.all;
 
 
 entity m9_fulladd is
-  generic (tpd      :  time := 0 ns);
+  generic (tpd      :  time := 1 ns);
   port (a, b, cin  : in  std_logic;
 	sum , cout : out std_logic);
 end m9_fulladd;
 
 
-architecture behaviour of m9_fulladd is
+architecture behavioural of m9_fulladd is
 begin
 
   compute_result : process (a, b, cin)
@@ -47,7 +47,7 @@ begin
     cout <= tmp_carry;
   end process;
 
-end behaviour;
+end behavioural;
 
 
 architecture gatelevel of m9_fulladd is

@@ -5,7 +5,7 @@ entity m9_csa_tb is
     generic (width : positive := 5);
 end m9_csa_tb;
 
-architecture behavior of m9_csa_tb is
+architecture gatelevel of m9_csa_tb is
     component m9_csa is 
         port (a, b, c : in std_logic_vector (width - 1 downto 0);
                 s : out std_logic_vector (width - 1 downto 0);
