@@ -1,3 +1,10 @@
 *.idea
 *.cf
 *.gtk
+*.o
+*.cache
+*.hw
+*.ip_user_files
+*.runs
+*.sim
+*.xpr
