@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity m9_adder_delay is
     generic(
-        width : positive := 5;
+        width : positive := 32;
         tpd : time := 100 ns);
     port (cin : in std_logic;
           a, b : in std_logic_vector (width - 1 downto 0);
