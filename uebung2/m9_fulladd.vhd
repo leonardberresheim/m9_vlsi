@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 
 entity m9_fulladd is
-  generic (tpd      :  time := 1 ns);
+  generic (tpd      :  time := 0 ns);
   port (a, b, cin  : in  std_logic;
 	sum , cout : out std_logic);
 end m9_fulladd;

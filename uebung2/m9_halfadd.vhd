@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity m9_halfadd is
-  generic (tpd      :  time := 1 ns);
+  generic (tpd      :  time := 0 ns);
   port (a, b        : in  std_logic;
 	sum, carry  : out std_logic);
 end m9_halfadd;
@@ -37,8 +37,8 @@ begin
 end behavioural;
 
 
--- architecture gatelevel of m9_halfadd is
--- begin
---  sum   <= transport a xor b after tpd;
---  carry <= transport a and b after tpd;
---end gatelevel;
+architecture gatelevel of m9_halfadd is
+begin
+ sum   <= transport a xor b after tpd;
+ carry <= transport a and b after tpd;
+end gatelevel;
