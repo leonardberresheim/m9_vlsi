@@ -27,6 +27,9 @@ architecture behavioural of m9_csa is
     signal s_rca : std_logic_vector(width downto 0);
 
     signal cout_rca : std_logic_vector(width downto 0);
+    signal s_cout : std_logic;
+
+    signal s_s : std_logic_vector (width downto 0);
 
 begin
 
@@ -46,7 +49,8 @@ begin
             port map(a=>a(i), b=>b(i), cin=>c(i), cout=>c_fa(i), sum=>s_fa(i));
     end generate;
 
-    s <= s_rca;
-    cout <= cout_rca(width);
-
+    s_s <= s_rca;
+    s <= s_s;
+    s_cout <= cout_rca(width);
+    cout <= s_cout;
 end behavioural;
