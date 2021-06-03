@@ -1,21 +1,21 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity m9_pp is                       -- Example
-    generic (width_opa_in : positive; -- 4 
-    width_opb_in : positive;          -- 5
-    width_prod_in : positive;         -- 1
-    width_opa_out : positive;         -- 4
-    width_opb_out : positive;         -- 5
-    width_prod_out : positive);       -- 6
+entity m9_pp is                           -- Example
+    generic (width_opa_in : positive;     -- 4 
+        width_opb_in : positive;          -- 7
+        width_prod_in : positive;         -- 7
+        width_opa_out : positive;         -- 4
+        width_opb_out : positive;         -- 7
+        width_prod_out : positive);       -- 8
     port (clk : in std_logic;
-    reset : in std_logic;
-    a_in : in std_logic_vector(width_opa_in - 1 downto 0);
-    b_in : in std_logic_vector(width_opb_in - 1 downto 0);
-    y_in : in std_logic_vector(width_prod_in - 1 downto 0);
-    a_out : out std_logic_vector(width_opa_out - 1 downto 0);
-    b_out : out std_logic_vector(width_opb_out - 1 downto 0);
-    y_out : out std_logic_vector(width_prod_out - 1 downto 0)); 
+        reset : in std_logic;
+        a_in : in std_logic_vector(width_opa_in - 1 downto 0);
+        b_in : in std_logic_vector(width_opb_in - 1 downto 0);
+        y_in : in std_logic_vector(width_prod_in - 1 downto 0);
+        a_out : out std_logic_vector(width_opa_out - 1 downto 0);
+        b_out : out std_logic_vector(width_opb_out - 1 downto 0);
+        y_out : out std_logic_vector(width_prod_out - 1 downto 0)); 
     end m9_pp;
 
 architecture behavioural of m9_pp is
