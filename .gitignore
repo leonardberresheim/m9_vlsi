@@ -7,4 +7,5 @@
 *.ip_user_files
 *.runs
 *.sim
+*.vscode/
 *.xpr

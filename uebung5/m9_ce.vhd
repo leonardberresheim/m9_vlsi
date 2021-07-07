@@ -27,10 +27,11 @@ architecture behaviour of m9_ce is
               d : out std_logic_vector(31 downto 0));
     end component;
 
-    signal x_shift_out, y_shift_out, x_addsub_out, y_add_sub_out, z_add_sub_out, rom_out : std_logic_vector(31 downto 0);
+    signal x_shift_out, y_shift_out, rom_out : std_logic_vector(31 downto 0);
     signal not_sigma : std_logic;
 begin
-    not_sigma <= not sigma;
+    not_sigma <= not sigma when m = '0' else
+        sigma;
     rom : m9_artan_rom
         port map(i => i, d => rom_out);
     
@@ -41,11 +42,11 @@ begin
         port map(x => y_in, pos => i, y => y_shift_out);
 
     x_addsub : m9_addsub32
-        port map(a => x_in, b => y_shift_out, ans => (not_sigma), y => x_out);
+        port map(a => x_in, b => y_shift_out, ans => sigma, y => x_out);
 
     y_addsub : m9_addsub32
-        port map(a => y_in, b => x_shift_out, ans => sigma, y => y_out);
+        port map(a => y_in, b => x_shift_out, ans => not_sigma, y => y_out);
 
     z_addsub : m9_addsub32
-        port map(a => z_in, b => rom_out, ans => (not_sigma), y => z_out);
+        port map(a => z_in, b => rom_out, ans => sigma, y => z_out);
 end behaviour;
