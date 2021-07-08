@@ -38,9 +38,21 @@ begin
         wait for 20 ns;
         valid_in <= '1';
         wait for 100 ns;
-        assert valid_out = '1' report "valid out failed";
-        assert cos_theta = "00000000000000000000000000000001" report "cos failed";
-        assert sin_theta = "00000001101001011001001000011000" report "sin failed";
+        assert valid_out = '1' report "90° - valid out failed";
+        assert cos_theta = "00000000000000000000000000000001" report "90° - cos failed";
+        assert sin_theta = "00000001101001011001001000011000" report "90° - sin failed";
+---------------------------------------------------------------------------------------------
+        reset <= '1';
+        wait for 20 ns;
+        reset <= '0';
+            -- 30 grad
+        theta <= "00011110000000000000000000000000";
+        wait for 20 ns;
+        valid_in <= '1';
+        wait for 100 ns;
+        assert valid_out = '1' report "30° - valid out failed";
+        assert cos_theta = "00000001011011010001011101000000" report "30° - cos failed";
+        assert sin_theta = "00000000110100101100100100001100" report "30° - sin failed";
         
         
 
